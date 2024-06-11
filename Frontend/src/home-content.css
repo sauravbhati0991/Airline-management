@@ -2,9 +2,9 @@
 {
     height:95vh;
     width:100%;
-    background-color:#C38154;
+    background-color:#A91D3A;
     padding-top: 10px;;
-    color:#6B240C;
+    color:#EEEEEE;
 }
 .card
 {
@@ -34,7 +34,7 @@
 }
 .text h1
 {
-    color:#6B240C;
+    color:#373A40;
     font-style: italic;
 }
 .hidden

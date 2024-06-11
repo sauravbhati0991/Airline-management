@@ -1,9 +1,20 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "./navbar.css";
 function Navbar()
-{
+{  
+    const [navbar,setnavbar]= useState(false);
+    const changeBackground=()=>
+        {
+            if(window.scrollY >=400)
+                {
+                    setnavbar(true);
+                }else{
+                    setnavbar(false);
+                }
+        };
+        window.addEventListener("scroll",changeBackground)
     return(
-        <div className="header">    
+        <div className={navbar? "header active" : "header"}>    
             <div className="header-nav-logo">
             <img src="./src/assets/airplane_2200326.png" alt="img"></img>
             <div className="title">

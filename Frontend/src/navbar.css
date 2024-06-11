@@ -5,14 +5,14 @@
 }
 .header
 { 
-    margin-top: 30px;
-    margin-left: 10px;
+    /* margin-top: 30px; */
     display: flex;
     /* height:10%; */
     width:100%;
     /* background-color: #EF9C66; */
     z-index: 99;
     position: fixed;
+    height:12%;
 }
 .header-nav-logo
 {
@@ -22,7 +22,7 @@
     text-shadow: 1px 1px black;
     width:25%;
     color:rgb(0, 174, 255);
-    margin:0;
+    margin-left:10px;
     gap:15px;
 }
 .header-nav-logo img
@@ -90,4 +90,9 @@ a:hover
     padding:5px 5px ;
     border-radius: 5px;
     transition: all 0.5s ease-in;
+}
+.active
+{
+    background-color:black;
+    transition: all 0.5s ease-in-out;
 }
