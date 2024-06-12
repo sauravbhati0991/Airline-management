@@ -21,7 +21,7 @@
     font-style: italic;
     text-shadow: 1px 1px black;
     width:25%;
-    color:rgb(0, 174, 255);
+    color:aliceblue;
     margin-left:10px;
     gap:15px;
 }
@@ -93,6 +93,6 @@ a:hover
 }
 .active
 {
-    background-color:black;
+    background-color: #2D2424;
     transition: all 0.5s ease-in-out;
 }

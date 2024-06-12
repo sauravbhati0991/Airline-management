@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import "./navbar.css";
+import {Link} from 'react-router-dom'
 function Navbar()
 {  
     const [navbar,setnavbar]= useState(false);
@@ -23,13 +24,13 @@ function Navbar()
             </div>
             </div>               
             <div className="options">
-            <a href="#menu">HOME</a>
-            <a href="myflights.html">BOOK FLIGHTS</a>
-            <a href="contact.html">CONTACT US</a>
-            <a href="about.html">ABOUT US</a>
+            <Link to="/">HOME</Link>
+            <Link to="myflights.html">BOOK FLIGHTS</Link>
+            <Link to="contact.html">CONTACT US</Link>
+            <Link to="about.html">ABOUT US</Link>
             </div> 
             <div id="btn">
-            <button>LOGIN<img id="ig" src="./src/assets/enter.png"></img></button>
+            <Link to="/login"><button>LOGIN<img id="ig" src="./src/assets/enter.png"></img></button></Link>
             </div>
         </div>
     )
