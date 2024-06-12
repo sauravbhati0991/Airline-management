@@ -6,12 +6,17 @@ import Video from './video.jsx';
 import MyComponent from './home-content.jsx';
 import Footer from './footer.jsx';
 import LoginComponent from './login.jsx';
+import Aboutus from "./Aboutus.jsx"
 
 function App() {
     const router = createBrowserRouter([
         {
             path: "/login",
             element: <><Navbar /><LoginComponent /></>
+        },
+        {
+            path: "/about",
+            element: <><Navbar/><Aboutus/></>
         },
         {
             path: "/",  // Define the default route for home page components

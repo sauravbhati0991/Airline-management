@@ -27,7 +27,7 @@ function Navbar()
             <Link to="/">HOME</Link>
             <Link to="myflights.html">BOOK FLIGHTS</Link>
             <Link to="contact.html">CONTACT US</Link>
-            <Link to="about.html">ABOUT US</Link>
+            <Link to="/about">ABOUT US</Link>
             </div> 
             <div id="btn">
             <Link to="/login"><button>LOGIN<img id="ig" src="./src/assets/enter.png"></img></button></Link>
