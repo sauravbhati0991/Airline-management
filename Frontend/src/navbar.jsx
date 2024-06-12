@@ -1,8 +1,11 @@
 import React,{useState,useEffect} from "react";
 import "./navbar.css";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 function Navbar()
 {  
+    const location = useLocation();
+    const isaboutPage = location.pathname === '/about';
     const [navbar,setnavbar]= useState(false);
     const changeBackground=()=>
         {
@@ -15,7 +18,7 @@ function Navbar()
         };
         window.addEventListener("scroll",changeBackground)
     return(
-        <div className={navbar? "header active" : "header"}>    
+        <div className={`navbar ${isaboutPage? ' about-navbar' : ''} ${navbar? 'header active' : 'header'}`}>   
             <div className="header-nav-logo">
             <img src="./src/assets/airplane_2200326.png" alt="img"></img>
             <div className="title">
@@ -24,13 +27,14 @@ function Navbar()
             </div>
             </div>               
             <div className="options">
-            <Link to="/">HOME</Link>
-            <Link to="myflights.html">BOOK FLIGHTS</Link>
-            <Link to="contact.html">CONTACT US</Link>
-            <Link to="/about">ABOUT US</Link>
+            <Link className="link" to="/">HOME</Link>
+            <Link className="link" to="/book">BOOK FLIGHTS</Link>
+            <Link className="link" to="/myflights">MY FLIGHTS</Link>
+            <Link className="link" to="/contact">CONTACT US</Link>
+            <Link className="link" to="/about">ABOUT US</Link>
             </div> 
             <div id="btn">
-            <Link to="/login"><button>LOGIN<img id="ig" src="./src/assets/enter.png"></img></button></Link>
+            <Link className="link" to="/login"><button>LOGIN<img id="ig" src="./src/assets/enter.png"></img></button></Link>
             </div>
         </div>
     )

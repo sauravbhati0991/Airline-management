@@ -6,8 +6,10 @@ import Video from './video.jsx';
 import MyComponent from './home-content.jsx';
 import Footer from './footer.jsx';
 import LoginComponent from './login.jsx';
-import Aboutus from "./Aboutus.jsx"
-
+import Aboutus from "./Aboutus.jsx";
+import Contactus from './contactus.jsx';
+import Bookflights from './Booking.jsx';
+import Myflights from './Myflights.jsx';
 function App() {
     const router = createBrowserRouter([
         {
@@ -16,8 +18,21 @@ function App() {
         },
         {
             path: "/about",
-            element: <><Navbar/><Aboutus/></>
+            element: <><Navbar /><Aboutus/></>
         },
+        {
+            path: "/contact",
+            element: <><Navbar/><Contactus/></>
+        },
+        {
+            path: "/book",
+            element: <><Navbar/><Bookflights/></>
+        },
+        {
+            path: "/myflights",
+            element: <><Navbar/><Myflights/></>
+        },
+
         {
             path: "/",  // Define the default route for home page components
             element: (
