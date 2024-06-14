@@ -1,6 +1,13 @@
 import "./contactus.css"
 function Contactus()
 {
+function resetinputs()
+{   
+    alert(`hi ${document.getElementById("name").value}, your response has been submitted `)
+    document.getElementById("name").value='';
+    document.getElementById("number").value=
+    document.getElementById("message").value='';
+}
 return(
     <div className="contactus">
         <h1>CONTACT US</h1>
@@ -39,16 +46,16 @@ return(
         <div className="contact-card">
             <p className="margin heading">Fill Up The Form</p>
             <div className="input1">
-            <p className="margin">Name:</p>
-            <input className="margin" type="text" ></input>
+            <p className="margin" >Name:</p>
+            <input className="margin" id="name" type="text" ></input>
             </div>
             <div className="input1">
             <p className="margin">Phone. Number</p>
-            <input className="margin" type="number" ></input>
+            <input className="margin"  id="number" type="number" ></input>
             </div>
             <p className="margin">Your Message:</p>
-            <textarea className="margin"></textarea>
-            <button className="margin">Submit</button>
+            <textarea id="message" className="margin"></textarea>
+            <button className="margin" onClick={resetinputs}>Submit</button>
         </div>
         </div>
     </div>
