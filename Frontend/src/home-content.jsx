@@ -101,6 +101,9 @@ function Mycomponent()
                 <img  className="igm"src="./src/assets/celeb3.jpg"></img>
             </div>
             </div>
+            <div className="home-content1">
+                <p>"Thank you for choosing FLyHigh Airlines! We're thrilled to have you on board and committed to providing a safe, comfortable, and memorable flying experience. Sit back, relax, and enjoy your flight with us!"</p>
+            </div>
         </div>
     )
 }
