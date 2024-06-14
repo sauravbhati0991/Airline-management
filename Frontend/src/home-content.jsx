@@ -31,6 +31,9 @@ function Mycomponent()
   
     return(
         <div className="content">
+                        <div className="home-content1">
+                <p>"Welcome aboard FlyHigh Airlines!,We're thrilled to welcome you to our website, your gateway to seamless travel experiences and unparalleled service. Explore our destinations, discover exclusive deals, and let us take you on a journey above the clouds. Happy travels with FlyHigh!"</p>
+            </div>
 {/* 1 */}
         <div className="card hidden">
             <div className="vid">
@@ -71,6 +74,33 @@ function Mycomponent()
             <video src='./src/assets/airvideo.mp4'  autoPlay loop muted></video>
             </div>
         </div>
+        <div className="celeb-sec">
+        <div className="about-content2">
+               <h3>We're First Choice of Every Star</h3> 
+               <div className="lists">
+                <ol>
+                    <li>Shahid kapoor</li>
+                    <li>Sonam Bajwa</li>
+                    <li>Virat kohli</li>
+                </ol>
+                <ol>
+                    <li>Karan Johar</li>
+                    <li>Kiara Advani</li>
+                    <li>Buvan Bam</li>
+                </ol>
+                <ol>
+                    <li>Arjit singh</li>
+                    <li>Ranveer Singh</li>
+                    <li>Angelina Jones</li>
+                </ol>
+               </div>
+            </div>
+        <div className="home-content3">
+                <img className="igm" id="ig1"src="./src/assets/celeb1.jpg"></img>
+                <img  className="igm"src="./src/assets/celeb2.jpg"></img>
+                <img  className="igm"src="./src/assets/celeb3.jpg"></img>
+            </div>
+            </div>
         </div>
     )
 }
