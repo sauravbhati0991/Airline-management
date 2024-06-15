@@ -1,0 +1,102 @@
+export let Data = [
+  {
+    airport_code: "ALB",
+    airport_city: "Mumbai",
+    airport_name: "Chhatrapati Shivaji International Airport",
+  },
+  {
+    airport_code: "CAD",
+    airport_city: "Delhi",
+    airport_name: "Indira Gandhi International Airport",
+  },
+  {
+    airport_code: "HVS",
+    airport_city: "Bangalore",
+    airport_name: "Kempegowda International Airport",
+  },
+  {
+    airport_code: "NTY",
+    airport_city: "Kolkata",
+    airport_name: "Netaji Subhash Chandra Bose International Air Airport",
+  },
+  {
+    airport_code: "AIC",
+    airport_city: "Chennai",
+    airport_name: "Madras International Meenambakkam Airport",
+  },
+  {
+    airport_code: "DNB",
+    airport_city: "Hyderabad",
+    airport_name: "Rajiv Gandhi International Airport",
+  },
+  {
+    airport_code: "KIU",
+    airport_city: "Ahmedabad",
+    airport_name: "Sardar Vallabhbhai Patel International Airport",
+  },
+  {
+    airport_code: "BIX",
+    airport_city: "Pune",
+    airport_name: "Pune Lohegaon Airport",
+  },
+  {
+    airport_code: "SKI",
+    airport_city: "Surat",
+    airport_name: "Surat International Airport (STV)",
+  },
+  {
+    airport_code: "LGW",
+    airport_city: "Jaipur",
+    airport_name: "Sanganer Airport",
+  },
+  {
+    airport_code: "UVF",
+    airport_city: "Lucknow",
+    airport_name: "Chaudhary Charan Singh International Airport",
+  },
+  {
+    airport_code: "YRF",
+    airport_city: "Kanpur",
+    airport_name: "Chakeri Airport Kanpur",
+  },
+  {
+    airport_code: "CMN",
+    airport_city: "Nagpur",
+    airport_name: "Dr. Babasaheb Ambedkar International Airport",
+  },
+  {
+    airport_code: "JDH",
+    airport_city: "Indore",
+    airport_name: "Devi Ahilya Bai Holkar Airport",
+  },
+  {
+    airport_code: "NIP",
+    airport_city: "Bhopal",
+    airport_name: "Raja Bhoj International Airport",
+  },
+  {
+    airport_code: "MNM",
+    airport_city: "Visakhapatnam",
+    airport_name: "Visakhapatnam International Airport",
+  },
+  {
+    airport_code: "TLN",
+    airport_city: "Patna",
+    airport_name: "Jaiprakash Narayan Airport",
+  },
+  {
+    airport_code: "ISI",
+    airport_city: "Vadodara",
+    airport_name: "Vadodara Airport",
+  },
+  {
+    airport_code: "DJU",
+    airport_city: "Ghaziabad",
+    airport_name: "Hindon Airport",
+  },
+  {
+    airport_code: "EZV",
+    airport_city: "Jodhpur",
+    airport_name: "Maharaja Surajmal Airport",
+  },
+];

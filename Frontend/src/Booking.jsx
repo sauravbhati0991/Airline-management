@@ -1,5 +1,312 @@
-function Bookflights()
-{
+import { useState } from "react";
+import axios from "axios";
+import { Data } from "./bookingdata";
+import { showAlert } from "./alert";
+import { VscArrowRight } from "react-icons/vsc";
 
+function getRandomSeatNumber() {
+  const numRows = 30;
+  const seatLetters = "ABCDEF";
+  const randomRow = Math.floor(Math.random() * numRows) + 1;
+  const randomSeatIndex = Math.floor(Math.random() * seatLetters.length);
+  const randomSeatLetter = seatLetters[randomSeatIndex];
+  const seatNumber = `${randomRow}${randomSeatLetter}`;
+  return seatNumber;
 }
-export default Bookflights;
+const Book = () => {
+  const [bookingData, setBookingData] = useState({
+    from: "",
+    to: "",
+    date: "",
+    guests: "",
+    ticketclassName: "",
+  });
+  const [table, setTable] = useState(false);
+  const [flightData, setFlightData] = useState([]);
+  const [fromAirport, setFromAirport] = useState("");
+  const [toAirport, setToAirport] = useState("");
+
+  const handleChange = (e) => {
+    const newBookingData = { ...bookingData };
+    newBookingData[e.target.name] = e.target.value;
+    setBookingData(newBookingData);
+  };
+
+  const bookFlight = async (
+    e,
+    bookingData,
+    flightdetails,
+    toAirport,
+    toAirportCode,
+    fromAirport,
+    fromAirportCode
+  ) => {
+    e.preventDefault();
+    e.target.innerText = "Booking...";
+    e.target.disabled = true;
+    const body = {
+      seat_num: getRandomSeatNumber().toString(),
+      flight_number: flightdetails.flight_number.toString(),
+      departure_city: flightdetails.departure_city.toString(),
+      arrival_city: flightdetails.arrival_city.toString(),
+      ticket_price: flightdetails.ticket_price.toString(),
+      review: flightdetails.review.toString(),
+      date: bookingData.date.toString(),
+      className: bookingData.ticketclassName.toString(),
+      fromAirport: fromAirport,
+      fromAirportCode: fromAirportCode,
+      toAirport: toAirport,
+      toAirportCode: toAirportCode,
+    };
+    try {
+      const res = await axios.post("http://127.0.0.1:5173/book", body, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setTimeout(() => {
+        console.log(res);
+        e.target.innerText = "Book Again";
+        e.target.disabled = false;
+      }, 2000);
+    } catch (err) {
+      console.error(err);
+      e.target.innerText = "Book Again";
+      e.target.disabled = false;
+    }
+  };
+
+  const handleBook = async (e) => {
+    e.preventDefault();
+    const { from, to, date, guests, ticketclassName } = bookingData;
+    if (from === to) {
+      showAlert("error", "Please select different city.");
+    } else {
+      const newDate = new Date(date).getDay();
+      const daysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const dayName = daysOfWeek[newDate];
+
+      if (from && to && dayName && guests && ticketclassName) {
+        try {
+          const res = await axios.get("http://127.0.0.1:5173/book", {
+            params: {
+              departure_city: from,
+              arrival_city: to,
+              arrival_date: dayName,
+            },
+          });
+          if (res.data.data.data.length === 0) {
+            showAlert(
+              "error",
+              `There are no flights available from ${from} to ${to} on this day.`
+            );
+          } else {
+            document.querySelector(".btn-text").innerText = "Loading...";
+            setTimeout(() => {
+              setFlightData(res.data.data.data);
+              setTable(true);
+              setFromAirport(from);
+              setToAirport(to);
+              showAlert("success", "Available flights are loaded.");
+              document.querySelector(".btn-text").innerText = "Search";
+            }, 2000);
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        showAlert("error", "Select all options!");
+      }
+    }
+  };
+
+  return (
+    <div className="book_container">
+      <div className="form-container">
+        <form className="form">
+          <div className="form-group">
+            <p>Destination From</p>
+            <div className="flex-row">
+              <select
+                className="select arrival"
+                name="from"
+                required
+                onChange={(e) => handleChange(e)}
+              >
+                <option value="" hidden>
+                  Please Select
+                </option>
+                {Data.map((v, i) => {
+                  return <option key={i}>{v.airport_city}</option>;
+                })}
+              </select>
+            </div>
+          </div>
+          <div className="form-group">
+            <p>Destination To</p>
+            <div className="flex-row">
+              <select
+                className="select destination"
+                name="to"
+                required
+                onChange={(e) => handleChange(e)}
+              >
+                <option value="" hidden>
+                  Please Select
+                </option>
+                {Data.map((v, i) => {
+                  return <option key={i}>{v.airport_city}</option>;
+                })}
+              </select>
+            </div>
+          </div>
+          <div className="form-group">
+            <p>Journey Date</p>
+            <input
+              type="date"
+              className="input date"
+              name="date"
+              required
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <p>Guests</p>
+            <div className="flex-row">
+              <select
+                className="select pass_num"
+                name="guests"
+                onChange={(e) => handleChange(e)}
+              >
+                <option value="" hidden>
+                  Please Select
+                </option>
+                <option value="1">1 Person</option>
+                <option value="2">2 Persons</option>
+                <option value="3">3 Persons</option>
+                <option value="4">4 Persons</option>
+              </select>
+            </div>
+          </div>
+          <div className="form-group">
+            <p>ClassName</p>
+            <div className="flex-row">
+              <select
+                className="select flight_class"
+                name="ticketclassName"
+                required
+                onChange={(e) => handleChange(e)}
+              >
+                <option value="" hidden>
+                  Please Select
+                </option>
+                <option>Business</option>
+                <option>Economy</option>
+              </select>
+            </div>
+          </div>
+          <button
+            onClick={(e) => handleBook(e)}
+            className="submit-btn"
+            type="submit"
+          >
+            <span className="btn-text">Search</span>
+          </button>
+        </form>
+      </div>
+      {table ? (
+        <div className="flight_container">
+          <p>Your Available Flights : {flightData.length}</p>
+          {flightData.map((v, i) => (
+            <div key={i}>
+              <hr />
+              <div className="AllFligths">
+                <div className="fromPort">
+                  <p>From: {fromAirport}</p>
+                  <p>
+                    {
+                      Data.find((data) => data.airport_city === fromAirport)
+                        ?.airport_name
+                    }
+                  </p>
+                  <p>
+                    (
+                    {
+                      Data.find((data) => data.airport_city === fromAirport)
+                        ?.airport_code
+                    }
+                    )
+                  </p>
+                </div>
+                <VscArrowRight className="arrow" />
+                <div className="toPort">
+                  <p>To: {toAirport}</p>
+                  <p>
+                    {
+                      Data.find((data) => data.airport_city === toAirport)
+                        ?.airport_name
+                    }
+                  </p>
+                  <p>
+                    (
+                    {
+                      Data.find((data) => data.airport_city === toAirport)
+                        ?.airport_code
+                    }
+                    )
+                  </p>
+                </div>
+              </div>
+              <div className="flight-details">
+                <p>Arrival Date: {bookingData.date}</p>
+                <hr />
+                <p>Flight ID: {flightData[i].flight_number}</p>
+                <hr />
+                <p>Total Seats: {flightData[i].seats}</p>
+                <hr />
+                <p>
+                  Booking Price: {"\u20B9"}
+                  {flightData[i].ticket_price}
+                </p>
+                <hr />
+                <p>Customer Reviews: {flightData[i].review}</p>
+                <button
+                  className="book-now"
+                  onClick={(e) =>
+                    bookFlight(
+                      e,
+                      bookingData,
+                      flightData[i],
+                      Data.find((data) => data.airport_city === toAirport)
+                        ?.airport_name,
+                      Data.find((data) => data.airport_city === toAirport)
+                        ?.airport_code,
+                      Data.find((data) => data.airport_city === fromAirport)
+                        ?.airport_name,
+                      Data.find((data) => data.airport_city === fromAirport)
+                        ?.airport_code
+                    )
+                  }
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
+  );
+};
+
+export default Book;

@@ -1,0 +1,177 @@
+.book_container {
+  padding-top: 300px;
+}
+
+.box {
+  background-image: url("./assets/banner.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.box1 {
+  background-image: url("./assets/myflights.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: white;
+  border-radius: 0.375rem;
+  max-width: 72rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .form {
+    flex-direction: row;
+  }
+}
+
+.form-group {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  flex: 1;
+  border-right: 2px solid #e5e7eb;
+}
+
+.select {
+  outline: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+.input {
+  outline: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #6366f1;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+.btn-text {
+  font-size: large;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.alert {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 9999;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+  border-radius: 8px;
+  padding: 1rem 5rem;
+  -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+}
+.alert--success {
+  background-color: #58d090;
+}
+.alert--error {
+  background-color: #eb4d4b;
+}
+
+.flight_container {
+  max-width: 72rem;
+  max-height: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.25rem;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.flight_container::-webkit-scrollbar {
+  display: none;
+}
+
+.flight_container p {
+  font-size: larger;
+  text-align: center;
+  padding: 5px 0 3px 0;
+}
+.flight_container hr {
+  margin: 5px 12px 5px 12px;
+}
+.AllFligths {
+  padding: 0 20px 0 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 350px;
+  flex-direction: row;
+  font-size: smaller;
+  align-items: center;
+}
+.arrow {
+  width: 30px;
+  height: 30px;
+}
+
+.flight-details {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: smaller;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px 0 20px;
+  margin-bottom: 5px;
+  text-wrap: nowrap;
+  position: relative;
+}
+
+.book-now {
+  position: absolute;
+  right: 20px;
+  background-color: #6c93f5;
+  padding: 3px 10px 3px 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: medium;
+}
+.book-now:hover {
+  background-color: #5683f6;
+}
+.book-now:active {
+  background-color: #4373ed;
+}

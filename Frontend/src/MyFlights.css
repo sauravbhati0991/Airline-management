@@ -1,0 +1,42 @@
+.main {
+  padding: 200px;
+}
+
+.Myflight_container {
+  background-color: white;
+  border-radius: 0.375rem;
+  max-width: 72rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: large;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+.Myflight_container::-webkit-scrollbar {
+  display: none;
+}
+.Myflight_container hr {
+  margin: 5px 20px 5px 20px;
+}
+.Myflight_container p {
+  padding: 8px 0px 8px 0px;
+}
+.main-details {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+}
+.flight-details {
+  font-size: medium;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.flight-details hr {
+  margin: 0;
+}
