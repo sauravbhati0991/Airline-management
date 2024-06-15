@@ -5,7 +5,7 @@ function LoginComponent(){
     const [action,setAction]= useState('');
 
     const registerLink = () => {
-        setAction('active');
+        setAction('actively');
     };
 
     const loginLink = () => {
