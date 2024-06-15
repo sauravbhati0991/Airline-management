@@ -15,3 +15,20 @@ To open the frontend part:-
 3. Now run the site by typing the follwing command on the terminal
 
        npm run dev
+
+
+
+To open the backend part:-
+
+
+1. Open terminal and go the folder Backend on terminal
+
+       cd Backend
+
+2. Type npm i and wait till the react files get downloaded.
+
+       npm i
+
+3. Now run the site by typing the follwing command on the terminal
+
+       npm start
