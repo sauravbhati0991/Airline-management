@@ -4,7 +4,7 @@ function Aboutus()
     return(
         <div className="about-us-components">
             <div className="img-sec-abt">
-            <img src="./src/assets/bg2.jpg"></img>
+            <img  id="igg1" src="./src/assets/bg2.jpg"></img>
             </div>
             <div className="about-content1">
                 <p>"As an airline crew, we ensure your travel is safe and enjoyable. Our strengths are in safety, training, and personalized service. Despite some challenges like delays, we are dedicated to serving you with professionalism and care."</p>

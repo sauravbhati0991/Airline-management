@@ -48,6 +48,7 @@
     justify-content: center;
     gap:10px;
     margin-bottom: 100px;
+    color: #333333; /* Updated to Text Color */
 }
 .igm
 {
@@ -55,4 +56,9 @@
 }
 .ig1{
     width: 60%;
+}
+#igg1
+{
+    /* object-fit:cover; */
+    width:100%;
 }
