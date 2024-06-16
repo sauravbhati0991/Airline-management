@@ -34,5 +34,11 @@ To open the backend part:-
 3.  Now run the site by typing the follwing command on the terminal
 
            npm start
+4. for the Booking and Myflight  exccess, give command on the terminal:- 
+         npm run start
+   
+
+
+   
 
     > > > > > > > f2808ce32ae5dba400937925f9f5d1c2859fcbf2
