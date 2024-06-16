@@ -7,7 +7,7 @@ function Myflights() {
   const [flightData, setFlightData] = useState([]);
   const allBookings = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:5173/myflights");
+      const res = await axios.get("http://localhost:8000/myflights");
       setFlightData(res.data.data.data);
     } catch (err) {
       console.log(err);

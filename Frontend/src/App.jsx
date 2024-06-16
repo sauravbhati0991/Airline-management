@@ -16,10 +16,10 @@ function App() {
     {
       path: "/login",
       element: (
-        <>
+        <div className="loginpage">
           <Navbar />
           <LoginComponent />
-        </>
+        </div>
       ),
     },
     {
@@ -52,7 +52,7 @@ function App() {
     {
       path: "/myflights",
       element: (
-        <div className="box">
+        <div className="box1">
           <Navbar />
           <Myflights />
         </div>

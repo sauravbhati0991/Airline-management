@@ -1,8 +1,10 @@
-const catchAsync = require("../Utilities/catchAsync");
-const MyFlight = require("./../Model/myFlightsModel");
-const Book = require("./../Model/bookModel");
+import { asyncHandler } from "../utils/asyncHandler.js"; 
+import { MyFlight } from "../models/myFlightsModel.js";
 
-exports.getAllFlights = catchAsync(async (req, res, next) => {
+import { Book } from "../models/bookModel.js";
+
+
+const getAllFlights = asyncHandler(async (req, res, next) => {
   const flights = await Book.find(req.query);
   res.status(200).json({
     app: "Airline",
@@ -14,7 +16,7 @@ exports.getAllFlights = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.bookFlight = catchAsync(async (req, res, next) => {
+const bookFlight = asyncHandler(async (req, res, next) => {
   const booked = await MyFlight.create(req.body);
   res.status(201).json({
     status: "success",
@@ -23,3 +25,6 @@ exports.bookFlight = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+
+export {getAllFlights, bookFlight}
