@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import { Data } from "./bookingdata";
 import { showAlert } from "./alert";
 import { VscArrowRight } from "react-icons/vsc";
-
+import { useNavigate } from "react-router-dom"
 function getRandomSeatNumber() {
   const numRows = 30;
   const seatLetters = "ABCDEF";
@@ -25,12 +25,32 @@ const Book = () => {
   const [flightData, setFlightData] = useState([]);
   const [fromAirport, setFromAirport] = useState("");
   const [toAirport, setToAirport] = useState("");
+  const [user, setUser] = useState(null); 
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const newBookingData = { ...bookingData };
     newBookingData[e.target.name] = e.target.value;
     setBookingData(newBookingData);
   };
+
+  
+
+  const handleBookNow = (e) => bookFlight(
+          e,
+          bookingData,
+          flightData[i],
+          Data.find((data) => data.airport_city === toAirport)
+            ?.airport_name,
+          Data.find((data) => data.airport_city === toAirport)
+            ?.airport_code,
+          Data.find((data) => data.airport_city === fromAirport)
+            ?.airport_name,
+          Data.find((data) => data.airport_city === fromAirport)
+            ?.airport_code
+        )
+      
+    
 
   const bookFlight = async (
     e,
@@ -121,6 +141,7 @@ const Book = () => {
           }
         } catch (err) {
           console.log(err);
+          navigate('/login')
         }
       } else {
         showAlert("error", "Select all options!");
@@ -282,21 +303,7 @@ const Book = () => {
                 <p>Customer Reviews: {flightData[i].review}</p>
                 <button
                   className="book-now"
-                  onClick={(e) =>
-                    bookFlight(
-                      e,
-                      bookingData,
-                      flightData[i],
-                      Data.find((data) => data.airport_city === toAirport)
-                        ?.airport_name,
-                      Data.find((data) => data.airport_city === toAirport)
-                        ?.airport_code,
-                      Data.find((data) => data.airport_city === fromAirport)
-                        ?.airport_name,
-                      Data.find((data) => data.airport_city === fromAirport)
-                        ?.airport_code
-                    )
-                  }
+                  onClick={handleBookNow}
                 >
                   Book Now
                 </button>
