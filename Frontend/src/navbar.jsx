@@ -23,7 +23,7 @@ function Navbar() {
     };
 
     fetchUser();
-}, []);
+  }, []);
 
 
 const handleLogout = async(e) => {
@@ -31,7 +31,7 @@ const handleLogout = async(e) => {
     setUser(null);
     try {
         const response = await axios.post('/api/v1/user/logout');
-        console.log("Response", response) 
+         
         alert('Logout successful');
         
     } catch (error) {
