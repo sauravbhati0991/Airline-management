@@ -12,7 +12,6 @@ import Contactus from "./contactus.jsx";
 import Bookflights from "./Booking.jsx";
 import Myflights from "./Myflights.jsx";
 function App() {
-<<<<<<< HEAD
   const router = createBrowserRouter([
     {
       path: "/login",
@@ -47,46 +46,6 @@ function App() {
         <div className="box">
           <Navbar />
           <Bookflights />
-=======
-    const router = createBrowserRouter([
-        {
-            path: "/login",
-            element: <div className='loginpage'><Navbar /><LoginComponent /></div>
-        },
-        {
-            path: "/about",
-            element: <><Navbar /><Aboutus/></>
-        },
-        {
-            path: "/contact",
-            element: <><Navbar/><Contactus/></>
-        },
-        {
-            path: "/book",
-            element: <><Navbar/><Bookflights/></>
-        },
-        {
-            path: "/myflights",
-            element: <><Navbar/><Myflights/></>
-        },
-
-        {
-            path: "/",  // Define the default route for home page components
-            element: (
-                <>  
-                    <Navbar/>
-                    <Video />
-                    <MyComponent />
-                </>
-            )
-        }
-    ]);
-
-    return (
-        <div className="container">
-            <RouterProvider router={router} />
-            <Footer />
->>>>>>> f2808ce32ae5dba400937925f9f5d1c2859fcbf2
         </div>
       ),
     },
