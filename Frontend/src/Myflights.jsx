@@ -15,9 +15,9 @@ function Myflights() {
   };
   allBookings();
   return (
-    <div className="main">
+    <div className="main-myflight">
       <div className="Myflight_container">
-        <p>Your Booked Flights:-{flightData.length}</p>
+        <p>Your Booked Flights: {flightData.length}</p>
 
         {flightData.map((v, i) => (
           <div key={i} className="details">
@@ -35,8 +35,8 @@ function Myflights() {
                 <p>({v.toAirportCode})</p>
               </div>
             </div>
-            <p>Your Booking Dteails: </p>
-            <p>(Ticket ID: {v._id})</p>
+            <p>-: Your Booking Details :- </p>
+            <p className="ticket-details">(Ticket ID: {v._id})</p>
             <div className="flight-details">
               <div>
                 <p>Date: {v.date}</p>

@@ -4,7 +4,9 @@ dotenv.config({ path: "./config.env" });
 const app = require("./app");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/airline")
+  .connect(
+    "mongodb+srv://iitjeetopper23:hola123@cluster0.kc9fugk.mongodb.net/usersAndFlights"
+  )
   .then(() => {
     console.log("DataBase Connected successfully.");
   })

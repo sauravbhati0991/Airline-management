@@ -122,12 +122,6 @@
 .flight_container::-webkit-scrollbar {
   display: none;
 }
-
-.flight_container p {
-  font-size: larger;
-  text-align: center;
-  padding: 5px 0 3px 0;
-}
 .flight_container hr {
   margin: 5px 12px 5px 12px;
 }
@@ -136,7 +130,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 350px;
+  gap: 230px;
   flex-direction: row;
   font-size: smaller;
   align-items: center;
@@ -147,17 +141,18 @@
 }
 
 .flight-details {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   font-size: smaller;
   margin-top: 20px;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
   padding: 0 20px 0 20px;
   margin-bottom: 5px;
   text-wrap: nowrap;
-  position: relative;
+  align-items: start;
+  justify-content: start;
 }
 
 .book-now {
@@ -174,4 +169,13 @@
 }
 .book-now:active {
   background-color: #4373ed;
+}
+
+.flighthead {
+  font-size: larger;
+  text-align: start;
+}
+
+.namair {
+  font-size: large;
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 /*||RESET*/
 /* *,
@@ -42,146 +42,145 @@ body{
     letter-spacing: 0.1em;
 } */
 /*||Login(CSS entirely done here no variable is used, please put img inside url in .login)*/
-.loginpage{
-    /* font-size: "Poppins", sans-serif;
+.loginpage {
+  /* font-size: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;  */
-    font-family: "Poppins", sans-serif;
-    color: #fff;
-    width: 100%;
-    height: 100vh;
-    background: url('assets/bg.jpg');
-    background-size: cover;
-    
-    /* margin-bottom: auto; */
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  background: url("assets/bg.jpg");
+  background-size: cover;
+
+  /* margin-bottom: auto; */
 }
 
-.login{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* min-height: 100vh; */
-    /* background: slateblue; */
-    /* background-size: 100%; */
-    /* background-position-y: -1150px; */
-} 
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.wrapper{
-    margin-top: 150px;
-    position: relative;
-    width: 420px;
-    height: 450px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .1);
-    backdrop-filter: blur(30px);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    overflow: hidden; 
-    transition: height .2s ease;
+  /* min-height: 100vh; */
+  /* background: slateblue; */
+  /* background-size: 100%; */
+  /* background-position-y: -1150px; */
+}
+
+.wrapper {
+  margin-top: 150px;
+  position: relative;
+  width: 420px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: height 0.2s ease;
 }
 
 .wrapper.actively {
-    margin-top: 100px;
-    height: 660px;
-    width: 590px;
+  margin-top: 100px;
+  height: 660px;
+  width: 590px;
 }
 
-.wrapper .form-box{
-    padding: 40px;
+.wrapper .form-box {
+  padding: 40px;
 }
 
-.wrapper .form-box.login{
-    width: 100%;
-    transition: translate .18s ease;
-    translate: 0px;
+.wrapper .form-box.login {
+  width: 100%;
+  transition: translate 0.18s ease;
+  translate: 0px;
 }
 
-.wrapper.actively .form-box.login{
-    transition: none;
-    translate: -450px;
+.wrapper.actively .form-box.login {
+  transition: none;
+  translate: -450px;
 }
 
-.wrapper .form-box.register .input-box input{
-    width: 90%;
+.wrapper .form-box.register .input-box input {
+  width: 90%;
 }
 
-.wrapper .form-box.register{
-    width: 90%;
-    position: absolute;
-    transition: none;
-    translate: 400px;
+.wrapper .form-box.register {
+  width: 90%;
+  position: absolute;
+  transition: none;
+  translate: 400px;
 }
 
-.wrapper.actively .form-box.register{
-    transition: translate .18s ease;
-    translate: -15px;
+.wrapper.actively .form-box.register {
+  transition: translate 0.18s ease;
+  translate: -15px;
 }
 
-form h1{
-    font-size: 36px;
-    text-align: center;
+form h1 {
+  font-size: 36px;
+  text-align: center;
 }
 
-form .input-box{
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
+form .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
 }
 
-.input-box input{
-    background: transparent;
-    border: none;
-    outline: none;
-    /* width: 100%; */
-    border: 2px solid rgba(255, 255, 255, .1);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding: 20px 45px 20px 20px; 
+.input-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  /* width: 100%; */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
 }
 
-.input-box input::placeholder{
-    color: #fff;    
+.input-box input::placeholder {
+  color: #fff;
 }
 
-.input-box i{
-    position: absolute;
-    right: 20px;
-    top: 50%; 
-    transform: 0 -50%;
-    font-size: 16px;
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: 0 -50%;
+  font-size: 16px;
 }
 
-form .remember-forgot{
-    display: flex;
-    justify-content: space-between;
-    font-size: 14.5px;
-    margin: 0 0 15px;
+form .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: 0 0 15px;
 }
 
-.remember-forgot label input{
-    accent-color: #fff;
-    margin-right: 4px;
+.remember-forgot label input {
+  accent-color: #fff;
+  margin-right: 4px;
 }
 
-.remember-forgot a{
-    color: #fff;
-    text-decoration: none;
+.remember-forgot a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.remember-forgot a:hover{
-    text-decoration: underline;
+.remember-forgot a:hover {
+  text-decoration: underline;
 }
 
-form button{
+/* form button{
     width: 100%;
     height: 45px;
     background: #fff;
@@ -193,22 +192,22 @@ form button{
     font-size: 16px;
     color: #333;
     font-weight: 700;
+} */
+
+form .register-link {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 30px 0 15px;
 }
 
-form .register-link{
-    font-size: 14.5px;
-    text-align: center;
-    margin: 30px 0 15px;
+.register-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.register-link p a{
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.register-link p a:hover{
-    text-decoration: underline;
+.register-link p a:hover {
+  text-decoration: underline;
 }
 
 /* .wrapper h1{

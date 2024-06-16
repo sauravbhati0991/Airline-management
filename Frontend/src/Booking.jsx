@@ -224,20 +224,22 @@ const Book = () => {
       </div>
       {table ? (
         <div className="flight_container">
-          <p>Your Available Flights : {flightData.length}</p>
+          <p className="flighthead">
+            Your Available Flights : {flightData.length}
+          </p>
           {flightData.map((v, i) => (
             <div key={i}>
               <hr />
               <div className="AllFligths">
                 <div className="fromPort">
-                  <p>From: {fromAirport}</p>
-                  <p>
+                  <p className="namair">From: {fromAirport}</p>
+                  <p className="namair">
                     {
                       Data.find((data) => data.airport_city === fromAirport)
                         ?.airport_name
                     }
                   </p>
-                  <p>
+                  <p className="namair">
                     (
                     {
                       Data.find((data) => data.airport_city === fromAirport)
@@ -248,14 +250,14 @@ const Book = () => {
                 </div>
                 <VscArrowRight className="arrow" />
                 <div className="toPort">
-                  <p>To: {toAirport}</p>
-                  <p>
+                  <p className="namair">To: {toAirport}</p>
+                  <p className="namair">
                     {
                       Data.find((data) => data.airport_city === toAirport)
                         ?.airport_name
                     }
                   </p>
-                  <p>
+                  <p className="namair">
                     (
                     {
                       Data.find((data) => data.airport_city === toAirport)
