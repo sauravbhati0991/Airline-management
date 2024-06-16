@@ -59,7 +59,7 @@ const Book = () => {
       toAirportCode: toAirportCode,
     };
     try {
-      const res = await axios.post("http://127.0.0.1:5173/book", body, {
+      const res = await axios.post('http://localhost:8000/book', body, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -96,7 +96,7 @@ const Book = () => {
 
       if (from && to && dayName && guests && ticketclassName) {
         try {
-          const res = await axios.get("http://127.0.0.1:5173/book", {
+          const res = await axios.get('/api/book', {
             params: {
               departure_city: from,
               arrival_city: to,

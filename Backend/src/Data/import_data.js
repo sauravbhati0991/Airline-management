@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const fs = require("fs");
-const Book = require("./../Model/bookModel");
+const Book = require("../../../Frontend/Model/bookModel");
 
 mongoose
   .connect(

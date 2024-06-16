@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose, {Schema} from "mongoose";
 
 const myFlightSchema = new mongoose.Schema({
   seat_num: {
@@ -39,6 +39,6 @@ const myFlightSchema = new mongoose.Schema({
   },
 });
 
-const MyFlight = mongoose.model("MyFlight", myFlightSchema);
+export const MyFlight = mongoose.model("MyFlight", myFlightSchema);
 
-module.exports = MyFlight;
+
