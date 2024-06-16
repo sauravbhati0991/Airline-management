@@ -32,9 +32,15 @@ To open the backend part:-
     npm i
 
 3.  Now run the site by typing the follwing command on the terminal
-
+   
            npm start
-4. for the Booking and Myflight  exccess, give command on the terminal:- 
+----------------------------------------------------
+4.  Open terminal and go the folder Backend on terminal.
+
+    cd Frontend
+    
+5. for the Booking and Myflight  exccess, give command on the terminal:-
+
          npm run start
    
 
