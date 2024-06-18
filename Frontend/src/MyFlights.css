@@ -1,46 +1,107 @@
+body {
+  overflow: hidden;
+}
 .main-myflight {
-  padding: 200px;
+  padding: 150px;
 }
 
 .Myflight_container {
   background-color: white;
   border-radius: 0.375rem;
-  max-width: 72rem;
-  min-width: 650px;
+  max-width: 900px;
+  min-width: 740px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-size: large;
-  max-height: 500px;
-  overflow-y: scroll;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.Myflight_container::-webkit-scrollbar {
+
+.Myflight_container-p {
+  text-align: center;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.Myflight-details {
+  width: 100%;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.Myflight-details::-webkit-scrollbar {
   display: none;
 }
-.Myflight_container hr {
-  margin: 5px 20px 5px 20px;
-}
-.main-details {
-  display: flex;
-  flex-direction: row;
-  gap: 100px;
-  justify-content: center;
-  align-items: center;
-  font-size: medium;
-}
-.flight-details {
+
+.details {
   width: 100%;
-  font-size: medium;
+  padding: 15px 0 15px 0;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.cancel-booking {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  background-color: rgb(242, 132, 132);
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-booking:hover {
+  background-color: rgb(233, 113, 113);
+}
+
+.cancel-booking:active {
+  background-color: rgb(237, 71, 71);
+}
+
+.details-p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.ticket-details {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.flight-details-2 {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  gap: 50px;
+  text-align: center;
 }
-.flight-details hr {
+
+.main-details div {
+  text-align: center;
+}
+
+.flight-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flight-details p {
+  font-size: small;
   margin: 0;
 }
-.ticket-details {
-  font-size: medium;
+
+.flight-details > div {
+  display: flex;
+  justify-content: space-between;
 }

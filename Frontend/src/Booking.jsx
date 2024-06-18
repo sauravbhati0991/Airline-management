@@ -1,9 +1,9 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Data } from "./bookingdata";
 import { showAlert } from "./alert";
 import { VscArrowRight } from "react-icons/vsc";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 function getRandomSeatNumber() {
   const numRows = 30;
   const seatLetters = "ABCDEF";
@@ -25,7 +25,7 @@ const Book = () => {
   const [flightData, setFlightData] = useState([]);
   const [fromAirport, setFromAirport] = useState("");
   const [toAirport, setToAirport] = useState("");
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -34,38 +34,20 @@ const Book = () => {
     setBookingData(newBookingData);
   };
 
-  
-
-  const handleBookNow = (e) => bookFlight(
-          e,
-          bookingData,
-          flightData[i],
-          Data.find((data) => data.airport_city === toAirport)
-            ?.airport_name,
-          Data.find((data) => data.airport_city === toAirport)
-            ?.airport_code,
-          Data.find((data) => data.airport_city === fromAirport)
-            ?.airport_name,
-          Data.find((data) => data.airport_city === fromAirport)
-            ?.airport_code
-        )
-      
-    
-
   const bookFlight = async (
     e,
     bookingData,
     flightdetails,
-    toAirport,
-    toAirportCode,
     fromAirport,
-    fromAirportCode
+    fromAirportCode,
+    toAirport,
+    toAirportCode
   ) => {
     e.preventDefault();
     e.target.innerText = "Booking...";
     e.target.disabled = true;
-    const body = {
-      seat_num: getRandomSeatNumber().toString(),
+    const flightData = {
+      seat_num: getRandomSeatNumber(),
       flight_number: flightdetails.flight_number.toString(),
       departure_city: flightdetails.departure_city.toString(),
       arrival_city: flightdetails.arrival_city.toString(),
@@ -73,19 +55,19 @@ const Book = () => {
       review: flightdetails.review.toString(),
       date: bookingData.date.toString(),
       className: bookingData.ticketclassName.toString(),
-      fromAirport: fromAirport,
-      fromAirportCode: fromAirportCode,
-      toAirport: toAirport,
-      toAirportCode: toAirportCode,
+      fromAirport: fromAirport.toString(),
+      fromAirportCode: fromAirportCode.toString(),
+      toAirport: toAirport.toString(),
+      toAirportCode: toAirportCode.toString(),
     };
     try {
-      const res = await axios.post('http://localhost:8000/book', body, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const response = await axios.get("/api/v1/user/", {
+        withCredentials: true,
       });
+      await setUser(response.data.data._id);
+      const res = await axios.patch(`/api/book/${user}`, flightData);
+
       setTimeout(() => {
-        console.log(res);
         e.target.innerText = "Book Again";
         e.target.disabled = false;
       }, 2000);
@@ -116,7 +98,7 @@ const Book = () => {
 
       if (from && to && dayName && guests && ticketclassName) {
         try {
-          const res = await axios.get('/api/book', {
+          const res = await axios.get("/api/book", {
             params: {
               departure_city: from,
               arrival_city: to,
@@ -141,7 +123,7 @@ const Book = () => {
           }
         } catch (err) {
           console.log(err);
-          navigate('/login')
+          navigate("/login");
         }
       } else {
         showAlert("error", "Select all options!");
@@ -287,26 +269,43 @@ const Book = () => {
                     )
                   </p>
                 </div>
-              </div>
-              <div className="flight-details">
-                <p>Arrival Date: {bookingData.date}</p>
-                <hr />
-                <p>Flight ID: {flightData[i].flight_number}</p>
-                <hr />
-                <p>Total Seats: {flightData[i].seats}</p>
-                <hr />
-                <p>
-                  Booking Price: {"\u20B9"}
-                  {flightData[i].ticket_price}
-                </p>
-                <hr />
-                <p>Customer Reviews: {flightData[i].review}</p>
                 <button
                   className="book-now"
-                  onClick={handleBookNow}
+                  onClick={(e) => {
+                    const fromAirportName = Data.find(
+                      (data) => data.airport_city === fromAirport
+                    )?.airport_name;
+                    const fromAirportCode = Data.find(
+                      (data) => data.airport_city === fromAirport
+                    )?.airport_code;
+                    const toAirportName = Data.find(
+                      (data) => data.airport_city === toAirport
+                    )?.airport_name;
+                    const toAirportCode = Data.find(
+                      (data) => data.airport_city === toAirport
+                    )?.airport_code;
+                    bookFlight(
+                      e,
+                      bookingData,
+                      flightData[i],
+                      fromAirportName,
+                      fromAirportCode,
+                      toAirportName,
+                      toAirportCode
+                    );
+                  }}
                 >
                   Book Now
                 </button>
+                <div className="main-details">
+                  <p>
+                    Arrival Date: {bookingData.date} | Flight ID:
+                    {flightData[i].flight_number} | Total Seats:
+                    {flightData[i].seats} | Booking Price: {"\u20B9"}
+                    {flightData[i].ticket_price} | Customer Reviews:
+                    {flightData[i].review}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
