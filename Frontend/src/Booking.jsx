@@ -65,7 +65,10 @@ const Book = () => {
         withCredentials: true,
       });
       await setUser(response.data.data._id);
-      const res = await axios.patch(`/api/book/${user}`, flightData);
+      const res = await axios.patch(
+        `/api/book/${response.data.data._id}`,
+        flightData
+      );
 
       setTimeout(() => {
         e.target.innerText = "Book Again";
