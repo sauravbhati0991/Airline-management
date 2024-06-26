@@ -4,6 +4,7 @@ import { Data } from "./bookingdata";
 import { showAlert } from "./alert";
 import { VscArrowRight } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
+import "https://js.stripe.com/v3/";
 function getRandomSeatNumber() {
   const numRows = 30;
   const seatLetters = "ABCDEF";
@@ -26,6 +27,7 @@ const Book = () => {
   const [fromAirport, setFromAirport] = useState("");
   const [toAirport, setToAirport] = useState("");
   const [user, setUser] = useState(null);
+  const [stripe, setStripe] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -33,6 +35,15 @@ const Book = () => {
     newBookingData[e.target.name] = e.target.value;
     setBookingData(newBookingData);
   };
+  useEffect(() => {
+    if (window.Stripe) {
+      setStripe(
+        window.Stripe(
+          "pk_test_51PSXjWRuTwtRahx7SdHHQrXyvlesXEfNc9OQLVnGtePN9GEsOqHzmHFHLVTFiNfvuPUWK5RZcoTNSSyCHXcuE9vU00pwVfNbhD"
+        )
+      );
+    }
+  }, []);
 
   const bookFlight = async (
     e,
@@ -64,11 +75,17 @@ const Book = () => {
       const response = await axios.get("/api/v1/user/", {
         withCredentials: true,
       });
-      await setUser(response.data.data._id);
       const res = await axios.patch(
         `/api/book/${response.data.data._id}`,
         flightData
       );
+      const session = await axios(
+        `/api/payment/checkout-session/${flightdetails._id}`
+      );
+
+      await stripe.redirectToCheckout({
+        sessionId: session.data.session.id,
+      });
 
       setTimeout(() => {
         e.target.innerText = "Book Again";

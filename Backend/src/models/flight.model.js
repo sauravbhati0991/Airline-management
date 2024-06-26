@@ -1,5 +1,5 @@
 import { time } from "console";
-import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 // import { type } from "os";
 
 const flightSchema = mongoose.Schema({
@@ -15,34 +15,34 @@ const flightSchema = mongoose.Schema({
 
   airline: {
     type: String,
-    enum: ['Air Asia', 'Indigo', 'Spice Jet'],
-    required: true
+    enum: ["Air Asia", "Indigo", "Spice Jet"],
+    required: true,
   },
 
   person: {
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
   },
 
   departureAirport: {
     type: Schema.Types.ObjectId,
-    ref: "Airport"
+    ref: "Airport",
   },
 
   arrivalAirport: {
     type: Schema.Types.ObjectId,
-    ref: "Airport"
+    ref: "Airport",
   },
 
   departureTime: {
-    type: time,
-    required: true
+    type: String,
+    required: true,
   },
 
   arrivalTime: {
-    type: time,
-    required: true
-  }
-})
+    type: String,
+    required: true,
+  },
+});
 
-export const Flight = mongoose.model("Flight", flightSchema)
+export const Flight = mongoose.model("Flight", flightSchema);

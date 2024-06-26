@@ -11,6 +11,7 @@ import Aboutus from "./Aboutus.jsx";
 import Contactus from "./contactus.jsx";
 import Bookflights from "./Booking.jsx";
 import Myflights from "./Myflights.jsx";
+import "https://js.stripe.com/v3/";
 function App() {
   const router = createBrowserRouter([
     {

@@ -13,11 +13,13 @@ app.use(cookieParser());
 import userRouter from "./routes/user.route.js";
 import bookRouter from "./routes/bookRouter.js";
 import myFlightRouter from "./routes/myFlightsRouter.js";
+import paymentRouter from "./routes/paymentRouter.js";
 
 //router declairation
 app.use("/api/v1/user", userRouter);
 app.use("/api/book", bookRouter);
 app.use("/api/myflights", myFlightRouter);
+app.use("/api/payment", paymentRouter);
 // app.all("*", (req, res, next) => {
 //   next(new AppError(`Can't find ${req.originalUrl} on this server.`, 404));
 // });
