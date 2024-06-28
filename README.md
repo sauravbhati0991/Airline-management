@@ -30,8 +30,9 @@ To open the backend part:-
 2.  Type npm i and wait till the react files get downloaded.
 
     npm i
+    npm i axios
 
-3.  Now run the site by typing the follwing command on the terminal
+4.  Now run the site by typing the follwing command on the terminal
    
            npm start
 ----------------------------------------------------
