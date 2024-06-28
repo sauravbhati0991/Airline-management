@@ -36,7 +36,7 @@ To open the backend part:-
    
            npm start
 ----------------------------------------------------
-4.  Open terminal and go the folder Backend on terminal.
+4.  Open terminal and go the folder Frontend on terminal.
 
     cd Frontend
     
