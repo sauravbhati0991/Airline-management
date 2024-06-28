@@ -14,7 +14,7 @@ To open the frontend part:-
 
 2. Type npm i and wait till the react files get downloaded.
 
-   npm i
+   npm i<br>
    npm i axios
 
 3. Now run the site by typing the follwing command on the terminal
@@ -29,7 +29,7 @@ To open the backend part:-
 
 2.  Type npm i and wait till the react files get downloaded.
 
-    npm i
+    npm i<br>
     npm i axios
 
 4.  Now run the site by typing the follwing command on the terminal
